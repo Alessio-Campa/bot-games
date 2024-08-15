@@ -1,12 +1,12 @@
-package it.unive.dais.po1.scopa;
+package it.unive.dais.po1.italianCardsGames;
 
 import it.unive.dais.po1.Suit;
 
 public class SuitIta extends Suit {
-    public static SuitIta bastoni = new SuitIta("bastoni");
-    public static SuitIta coppe = new SuitIta("coppe");
-    public static SuitIta danari = new SuitIta("danari");
-    public static SuitIta spade = new SuitIta("spade");
+    public static final SuitIta BASTONI = new SuitIta("bastoni");
+    public static final SuitIta COPPE = new SuitIta("coppe");
+    public static final SuitIta DANARI = new SuitIta("danari");
+    public static final SuitIta SPADE = new SuitIta("spade");
 
 
     private SuitIta(String suit){

@@ -31,4 +31,8 @@ public class Deck<S extends Suit> {
         return cards;
     }
 
+    public boolean isEmpty(){
+        return deck.isEmpty();
+    }
+
 }

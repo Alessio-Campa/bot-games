@@ -32,8 +32,9 @@ public class Hand<S extends Suit> {
     }
 
     public Card<S> removeCard(Card<S> card){
-        for(Card<S> c: this.cards){
-            if (c.equals(card)) return c;
+        if (cards.contains(card)){
+            this.cards.remove(card);
+            return card;
         }
         return null;
     }

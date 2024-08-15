@@ -1,6 +1,7 @@
-package it.unive.dais.po1.scopa;
+package it.unive.dais.po1.italianCardsGames.scopa;
 
 import it.unive.dais.po1.Card;
+import it.unive.dais.po1.italianCardsGames.SuitIta;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -30,24 +31,29 @@ public class ScopaTable {
         }
     }
 
-    public Collection<Collection<Card<SuitIta>>> placeCard(Card<SuitIta> card) {
+    public Collection<Card<SuitIta>> placeCard(Card<SuitIta> card) {
         List<Collection<Card<SuitIta>>> matches = findMatches(card.getValue(), 0);
         if (matches.isEmpty()){
             this.cards.add(card);
+            return List.of();
         }
-        else if (matches.size() == 1) {
-            this.removeCards(matches.get(0));
-        }
-        else {
+        Collection<Card<SuitIta>> gained;
+        if (matches.size() == 1) {
+            gained = matches.get(0);
+        }else{
             Scanner scanner = new Scanner(System.in);
-            int selected;
+            System.out.print("? Pick ");
             System.out.println(matches);
+            int selected;
             do{
                 selected = scanner.nextInt();
             }while (selected >= matches.size());
-            this.removeCards(matches.get(selected));
+
+            gained = matches.get(selected);
         }
-        return matches;
+        this.removeCards(gained);
+        gained.add(card);
+        return gained;
     }
 
     private List<Collection<Card<SuitIta>>> findMatches(int target, int pos) {
@@ -67,6 +73,7 @@ public class ScopaTable {
     }
 
     public void print(){
+        System.out.print("Table: ");
         System.out.println(cards);
     }
 
