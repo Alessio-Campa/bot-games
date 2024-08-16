@@ -2,6 +2,9 @@ package it.unive.dais.po1.italianCardsGames;
 
 import it.unive.dais.po1.Suit;
 
+import java.util.Collection;
+import java.util.List;
+
 public class SuitIta extends Suit {
     public static final SuitIta BASTONI = new SuitIta("bastoni");
     public static final SuitIta COPPE = new SuitIta("coppe");
@@ -22,5 +25,9 @@ public class SuitIta extends Suit {
             case "spade" -> 3;
             default -> -1;
         };
+    }
+
+    public static Collection<SuitIta> getSuits(){
+        return List.of(BASTONI, COPPE, DANARI, SPADE);
     }
 }

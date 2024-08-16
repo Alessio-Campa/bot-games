@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class ScopaTable {
-    List<Card<SuitIta>> cards;
+    private List<Card<SuitIta>> cards;
 
     public ScopaTable() {
         this.cards = new ArrayList<>();
@@ -15,6 +15,14 @@ public class ScopaTable {
 
     public ScopaTable(Collection<Card<SuitIta>> cards) {
         this.cards = new ArrayList<>(cards);
+    }
+
+    public List<Card<SuitIta>> getCards() {
+        return cards;
+    }
+
+    public boolean isEmpty(){
+        return cards.isEmpty();
     }
 
     public void addCard(Card<SuitIta> card) {
