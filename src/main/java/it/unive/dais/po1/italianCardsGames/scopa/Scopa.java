@@ -40,23 +40,21 @@ public class Scopa extends ItalianCardsGame {
 
     private void playMatch(){
         do {
-            for (int i = 0; i < 3; i++) {
-                System.out.println("Begin turn");
-                System.out.print("Player 1 hand: ");
-                this.player1.getHand().print();
-                System.out.print("Player 2 hand: ");
-                this.player2.getHand().print();
-                table.print();
-
-                playTurn();
-                table.print();
-
-                playTurn();
-            }
-
-            if (!deck.isEmpty()) {
+            if (player1.getHand().isEmpty() && player2.getHand().isEmpty()){
                 distributeCards();
             }
+
+            System.out.println("Begin turn");
+            System.out.print("Player 1 hand: ");
+            this.player1.getHand().print();
+            System.out.print("Player 2 hand: ");
+            this.player2.getHand().print();
+            table.print();
+
+            playTurn();
+            table.print();
+
+            playTurn();
         } while (!deck.isEmpty());
         if (lastPickup == 0){
             player1.addToPile(this.table.getCards());

@@ -32,7 +32,7 @@ public class Deck<S extends Suit> {
     }
 
     public boolean isEmpty(){
-        return position == 40;
+        return position >= 40;
     }
 
 }

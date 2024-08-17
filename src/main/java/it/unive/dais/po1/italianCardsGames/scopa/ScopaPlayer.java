@@ -86,6 +86,7 @@ public class ScopaPlayer extends Player<SuitIta> {
                 .stream()
                 .filter(card -> card.getSuit().equals(SuitIta.DANARI))
                 .map(Card::getValue)
+                .sorted()
                 .toList();
         int i = 0;
         while (i + 1 == values.get(i)) {
